@@ -1,6 +1,6 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/CloverHackyColor/CloverThemes-Gallery/blob/main/LICENSE)
 # CloverThemes Gallery
-## Start using ➢ [CloverThemes Gallery](https://htmlpreview.github.io/?https://github.com/CloverHackyColor/CloverThemes-Gallery/blob/main/index.html)
+## Start using ➢ [CloverThemes Gallery](https://cloverhackycolor.github.io/CloverThemes-Gallery/)
 
 ## How it work
 1. Fetching the Data (The Smart API Call)
