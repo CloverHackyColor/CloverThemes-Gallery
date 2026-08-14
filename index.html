@@ -287,6 +287,7 @@
     const canvas = document.getElementById('galaxy-bg');
     const ctx = canvas.getContext('2d');
     let stars = [];
+    let shootingStars = []; // Array for shooting stars
     let w, h;
 
     function initStars() {
@@ -309,8 +310,22 @@
         }
     }
 
+    // Function to spawn a new shooting star
+    function spawnShootingStar() {
+        shootingStars.push({
+            x: Math.random() * w,
+            y: Math.random() * h * 0.5, // Spawn in the upper half
+            len: Math.random() * 120 + 80,
+            speed: Math.random() * 6 + 6,
+            angle: Math.PI / 4, // 45-degree angle
+            life: 1
+        });
+    }
+
     function drawGalaxy() {
         ctx.clearRect(0, 0, w, h);
+        
+        // Draw regular stars
         stars.forEach(star => {
             star.x += star.speedX;
             star.y += star.speedY;
@@ -331,6 +346,42 @@
             }
             ctx.fill();
         });
+
+        // Draw shooting stars
+        for (let i = shootingStars.length - 1; i >= 0; i--) {
+            const sh = shootingStars[i];
+            const dx = Math.cos(sh.angle) * sh.speed;
+            const dy = Math.sin(sh.angle) * sh.speed;
+            sh.x += dx;
+            sh.y += dy;
+            sh.life -= 0.012;
+
+            const tailX = sh.x - Math.cos(sh.angle) * sh.len;
+            const tailY = sh.y - Math.sin(sh.angle) * sh.len;
+            
+            const grad = ctx.createLinearGradient(sh.x, sh.y, tailX, tailY);
+            // Using the theme's purple color (#d2a8ff) for the shooting star trail
+            grad.addColorStop(0, `rgba(210, 168, 255, ${Math.max(0, sh.life)})`);
+            grad.addColorStop(1, 'rgba(210, 168, 255, 0)');
+            
+            ctx.strokeStyle = grad;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(sh.x, sh.y);
+            ctx.lineTo(tailX, tailY);
+            ctx.stroke();
+
+            // Remove if it fades out or goes off screen
+            if (sh.life <= 0 || sh.x > w + 100 || sh.y > h + 100) {
+                shootingStars.splice(i, 1);
+            }
+        }
+
+        // Occasionally spawn a shooting star (approx ~0.4% chance per frame)
+        if (Math.random() < 0.004) {
+            spawnShootingStar();
+        }
+
         requestAnimationFrame(drawGalaxy);
     }
 
