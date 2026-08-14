@@ -1,4 +1,4 @@
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/CloverHackyColor/CloverThemes-Gallery/blob/main/LICENSE)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/CloverHackyColor/CloverThemes-Gallery/blob/main/LICENSE) [![pages-build-deployment](https://github.com/CloverHackyColor/CloverThemes-Gallery/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/CloverHackyColor/CloverThemes-Gallery/actions/workflows/pages/pages-build-deployment)
 # CloverThemes Gallery
 ## Start using ➢ [CloverThemes Gallery](https://cloverhackycolor.github.io/CloverThemes-Gallery/)
 
