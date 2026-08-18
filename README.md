@@ -22,5 +22,5 @@ When you click the green "Download" button, we have local ZIP downloads for them
 
 - In short: It grabs a master list of files from GitHub -> matches themes to their screenshots -> builds beautiful dark-mode cards -> and routes downloads through a dedicated ZIP service!
 
-#### Page build by: [chris1111](https://github.com/chris1111)
+* Page build by: [chris1111](https://github.com/chris1111)
 
